@@ -20,7 +20,10 @@ def get_data(file_path:str)->list:
     return data
 
 def main():
-    pass
+    file_path:str = "inventory.csv"
+    data:list = get_data(file_path)
+
+    print(data)
 
     
 
