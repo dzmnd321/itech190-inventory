@@ -19,11 +19,11 @@ def get_data(file_path:str)->list:
             data.append(row)
     return data
 
-def get_categories (data:list)->dict:
+def get_categories (data:list, category:str, age:int, field:str)->dict:
     categories = {}
 
     for item in data:
-        category =item.get('category')
+        category =item.get('category') == category and int(item.get('age')) > age
         if categories.get(category)is None:
             categories[category] = 0
 
@@ -36,13 +36,18 @@ def get_categories (data:list)->dict:
 def main():
     file_path:str = "inventory.csv"
     data:list = get_data(file_path)
-
-    categories = get_categories(data)
+    
+    
+    #categories = get_categories(data)
     print(f"Laptops: {categories.get('Laptop')}")
     print(f"Tablets: {categories.get('Tablet')}")
     print(f"Phones: {categories.get('Phone')}")
 
-    
+def get_old_stuff(data:list)->list:
+    old_stuff = []
+    for item in data:
+        if int (item.get('age'))
+        old_stuff  
 
 if __name__ == "__main__":
     main()
